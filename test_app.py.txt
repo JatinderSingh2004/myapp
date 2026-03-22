@@ -1,0 +1,23 @@
+from app import app
+
+def test_home_route():
+    client = app.test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+
+def test_health_route():
+    client = app.test_client()
+    response = client.get("/health")
+    assert response.status_code == 200
+```
+
+So your final folder structure should be:
+```
+myapp/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── app.py
+├── requirements.txt
+├── Dockerfile
+└── test_app.py
